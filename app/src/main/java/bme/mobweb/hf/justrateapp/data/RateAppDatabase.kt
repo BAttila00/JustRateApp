@@ -5,9 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Place::class], version = 1)       //Todo: kiboviteni reviews osztallyal, ha kesz.
+@Database(entities = [Place::class, Review::class], version = 1)       //Todo: kiboviteni reviews osztallyal, ha kesz.
 abstract class RateAppDatabase : RoomDatabase() {
     abstract fun PlaceDao(): PlaceDao
+    abstract fun ReviewDao(): ReviewDao
 
     companion object {
         fun getDatabase(applicationContext: Context): RateAppDatabase {
