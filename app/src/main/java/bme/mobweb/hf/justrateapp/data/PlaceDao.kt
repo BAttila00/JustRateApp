@@ -15,4 +15,7 @@ interface PlaceDao {
 
     @Delete
     fun deleteItem(shoppingItem: Place)
+
+    @Query("DELETE FROM place")
+    fun deleteAllFromPlaceTable();
 }

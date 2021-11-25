@@ -10,10 +10,10 @@ abstract class RateAppDatabase : RoomDatabase() {
     abstract fun PlaceDao(): PlaceDao
 
     companion object {
-        fun getDatabase(applicationContext: Context): RoomDatabase {
+        fun getDatabase(applicationContext: Context): RateAppDatabase {
             return Room.databaseBuilder(
                 applicationContext,
-                RoomDatabase::class.java,
+                RateAppDatabase::class.java,
                 "places_list"
             ).build();
         }
