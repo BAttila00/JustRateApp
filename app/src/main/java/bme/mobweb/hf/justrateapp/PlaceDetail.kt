@@ -64,7 +64,7 @@ class PlaceDetail : AppCompatActivity() {
         val textView: TextView = view as TextView
         val str: String = textView.text.toString()
         if(!URLUtil.isValidUrl(str)){
-            Toast.makeText(applicationContext,"Not valid URL! Can't open in browser.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext,"Not valid URL! Can't open in browser. Make sure it starts with HTTP or HTTPS",Toast.LENGTH_SHORT).show()
             return
         }
         val intentUri = Uri.parse(str)
