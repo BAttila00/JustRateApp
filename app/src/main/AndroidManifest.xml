@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JustRateApp">
         <activity
+            android:name=".PlaceDetail"
+            android:exported="true" />
+        <activity
             android:name=".CreatePlaceActivity"
             android:exported="true" />
         <activity

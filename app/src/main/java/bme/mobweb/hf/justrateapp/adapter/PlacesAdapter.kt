@@ -1,6 +1,7 @@
 package bme.mobweb.hf.justrateapp.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +12,25 @@ import bme.mobweb.hf.justrateapp.data.Place
 
 class PlacesAdapter() : RecyclerView.Adapter<PlacesAdapter.ViewHolder>(){
     private val postList: MutableList<Place> = mutableListOf()
+    var itemClickListener: PlaceItemClickListener? = null
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
         val tvAddress: TextView = itemView.findViewById(R.id.tvAddress)
         val tvPageUrl: TextView = itemView.findViewById(R.id.tvPageUrl)
+
+        //dont forget to initalize it in onBindViewHolder with viewHolder.restaurant = tmpPost
+        var place: Place? = null
+        //var restaurant: Restaurant = Restaurant()
+
+        init {
+            itemView.setOnClickListener {
+                if (place != null) Log.d("TAG", "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg")
+                else Log.d("TAG", "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
+                place?.let { place -> itemClickListener?.onItemClick(place) }
+                //itemClickListener?.onItemClick(restaurant)
+            }
+        }
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -27,6 +42,7 @@ class PlacesAdapter() : RecyclerView.Adapter<PlacesAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val tmpPost = postList[position]
+        viewHolder.place = tmpPost
         viewHolder.tvTitle.text = tmpPost.title
         viewHolder.tvAddress.text = tmpPost.address
         viewHolder.tvPageUrl.text = tmpPost.pageUrl
@@ -44,5 +60,9 @@ class PlacesAdapter() : RecyclerView.Adapter<PlacesAdapter.ViewHolder>(){
 
     fun clear(){
         postList.clear()
+    }
+
+    interface PlaceItemClickListener {
+        fun onItemClick(place: Place)
     }
 }

@@ -3,6 +3,7 @@ package bme.mobweb.hf.justrateapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import bme.mobweb.hf.justrateapp.adapter.PlacesAdapter
 import bme.mobweb.hf.justrateapp.data.Place
@@ -10,7 +11,7 @@ import bme.mobweb.hf.justrateapp.data.RateAppDatabase
 import bme.mobweb.hf.justrateapp.databinding.ActivityMainBinding
 import kotlin.concurrent.thread
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), PlacesAdapter.PlaceItemClickListener {
 
     private lateinit var placesAdapter: PlacesAdapter
     private lateinit var binding: ActivityMainBinding
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             reverseLayout = true
             stackFromEnd = true
         }
+        placesAdapter.itemClickListener = this
         binding.rvPlaces.adapter = placesAdapter
 
         binding.fab.setOnClickListener {
@@ -67,5 +69,9 @@ class MainActivity : AppCompatActivity() {
 //        list.forEach {
 //            placesAdapter.addPost(it)
 //        }
+    }
+
+    override fun onItemClick(place: Place) {
+        Toast.makeText(applicationContext,"Navigate to restaurant layout", Toast.LENGTH_SHORT).show()
     }
 }
