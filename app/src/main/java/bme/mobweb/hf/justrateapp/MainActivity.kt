@@ -72,6 +72,11 @@ class MainActivity : AppCompatActivity(), PlacesAdapter.PlaceItemClickListener {
     }
 
     override fun onItemClick(place: Place) {
-        Toast.makeText(applicationContext,"Navigate to restaurant layout", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, PlaceDetail::class.java)
+        intent.putExtra(PlaceDetail.KEY_TITTLE, place.title)
+        intent.putExtra(PlaceDetail.KEY_ADDRESS, place.address)
+        intent.putExtra(PlaceDetail.KEY_URL, place.pageUrl)
+        startActivity(intent)
+        //Toast.makeText(applicationContext,"Navigate to restaurant layout", Toast.LENGTH_SHORT).show()
     }
 }
