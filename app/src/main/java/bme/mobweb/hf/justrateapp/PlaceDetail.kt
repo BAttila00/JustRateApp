@@ -21,6 +21,7 @@ class PlaceDetail : AppCompatActivity() {
         const val KEY_TITTLE = "KEY_TITTLE"
         const val KEY_ADDRESS = "KEY_ADDRESS"
         const val KEY_URL = "KEY_URL"
+        const val KEY_RESTAURANT_ID = "RESTAURANT_ID"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

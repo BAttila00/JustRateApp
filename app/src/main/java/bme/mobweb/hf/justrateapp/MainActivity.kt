@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity(), PlacesAdapter.PlaceItemClickListener {
         intent.putExtra(PlaceDetail.KEY_TITTLE, place.title)
         intent.putExtra(PlaceDetail.KEY_ADDRESS, place.address)
         intent.putExtra(PlaceDetail.KEY_URL, place.pageUrl)
+        intent.putExtra(PlaceDetail.KEY_RESTAURANT_ID, place.id)
         startActivity(intent)
         //Toast.makeText(applicationContext,"Navigate to restaurant layout", Toast.LENGTH_SHORT).show()
     }
