@@ -8,13 +8,13 @@ interface PlaceDao {
     fun getAll(): List<Place>
 
     @Insert
-    fun insert(shoppingItems: Place): Long      //TODO: megváltoztatni a shoppingItems nevet másra
+    fun insert(placeItem: Place): Long      //TODO: megváltoztatni a shoppingItems nevet másra
 
     @Update
-    fun update(shoppingItem: Place)
+    fun update(placeItem: Place)
 
     @Delete
-    fun deleteItem(shoppingItem: Place)
+    fun deleteItem(placeItem: Place)
 
     @Query("DELETE FROM place")
     fun deleteAllFromPlaceTable();
