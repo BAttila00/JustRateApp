@@ -51,6 +51,9 @@ class CreatePlaceActivity : AppCompatActivity() {
             database.PlaceDao().insert(newPlace)
         }
         //placesAdapter.addPost(newPlace)
+
+        val createMainIntent = Intent(this, MainActivity::class.java)
+        startActivity(createMainIntent)
     }
 
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
