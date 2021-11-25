@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import bme.mobweb.hf.justrateapp.R
+import bme.mobweb.hf.justrateapp.data.Place
 import bme.mobweb.hf.justrateapp.data.Review
 
 class ReviewsAdapter: RecyclerView.Adapter<ReviewsAdapter.ViewHolder>() {
@@ -24,7 +25,7 @@ class ReviewsAdapter: RecyclerView.Adapter<ReviewsAdapter.ViewHolder>() {
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(viewHolder: ReviewsAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         val tmpReview = reviewList[position]
 
@@ -32,4 +33,15 @@ class ReviewsAdapter: RecyclerView.Adapter<ReviewsAdapter.ViewHolder>() {
     }
 
     override fun getItemCount() = reviewList.size
+
+    fun addReview(review: Review?) {
+        review ?: return
+
+        reviewList.add(review)
+        notifyDataSetChanged()
+    }
+
+    fun clear(){
+        reviewList.clear()
+    }
 }

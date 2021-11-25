@@ -56,8 +56,9 @@
         app:layout_constraintTop_toBottomOf="@+id/tvPlaceAddress" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="409dp"
-        android:layout_height="563dp"
+        android:id="@+id/rvReviews"
+        android:layout_width="400dp"
+        android:layout_height="350dp"
         app:layout_constraintBottom_toTopOf="@+id/fab"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPlaceURL" />
