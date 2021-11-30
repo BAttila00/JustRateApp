@@ -19,16 +19,11 @@ class PlacesAdapter() : RecyclerView.Adapter<PlacesAdapter.ViewHolder>(){
         val tvAddress: TextView = itemView.findViewById(R.id.tvAddress)
         val tvPageUrl: TextView = itemView.findViewById(R.id.tvPageUrl)
 
-        //dont forget to initalize it in onBindViewHolder with viewHolder.restaurant = tmpPost
         var place: Place? = null
-        //var restaurant: Restaurant = Restaurant()
 
         init {
             itemView.setOnClickListener {
-                if (place != null) Log.d("TAG", "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg")
-                else Log.d("TAG", "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
                 place?.let { place -> itemClickListener?.onItemClick(place) }
-                //itemClickListener?.onItemClick(restaurant)
             }
         }
     }

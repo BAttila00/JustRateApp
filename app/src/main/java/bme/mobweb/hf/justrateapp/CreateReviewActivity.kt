@@ -54,9 +54,7 @@ class CreateReviewActivity : AppCompatActivity() {
             newintent.putExtra(PlaceDetail.KEY_ADDRESS, intent.getStringExtra(KEY_ADDRESS))
             newintent.putExtra(PlaceDetail.KEY_URL, intent.getStringExtra(KEY_URL))
             newintent.putExtra(PlaceDetail.KEY_RESTAURANT_ID, intent.getLongExtra(KEY_RESTAURANT_ID, 1))
-            //startActivity(newintent)
             startActivity(newintent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
         }
-        //placesAdapter.addPost(newPlace)
     }
 }

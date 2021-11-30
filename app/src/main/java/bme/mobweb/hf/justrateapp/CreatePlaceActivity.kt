@@ -35,14 +35,6 @@ class CreatePlaceActivity : AppCompatActivity() {
 
     }
 
-//    private fun sendClick() {
-//        if (!validateForm()) {
-//            return
-//        }
-//
-//        uploadPost()
-//    }
-
     private fun validateForm() = !(binding.etTitle.text.isEmpty() && binding.etAddress.text.isEmpty())
 
     private fun uploadPost() {
@@ -50,16 +42,8 @@ class CreatePlaceActivity : AppCompatActivity() {
         thread {
             database.PlaceDao().insert(newPlace)
         }
-        //placesAdapter.addPost(newPlace)
 
         val createMainIntent = Intent(this, MainActivity::class.java)
         startActivity(createMainIntent)
     }
-
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (resultCode != Activity.RESULT_OK) {
-//            return
-//        }
-//    }
 }

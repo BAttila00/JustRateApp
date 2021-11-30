@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity(), PlacesAdapter.PlaceItemClickListener {
         placesAdapter.clear()
 
         thread {
-            //database.PlaceDao().deleteAllFromPlaceTable()
             list = database.PlaceDao().getAll()
             runOnUiThread {
                 list.forEach {
@@ -59,16 +58,6 @@ class MainActivity : AppCompatActivity(), PlacesAdapter.PlaceItemClickListener {
                 }
             }
         }
-
-
-//        val t = Thread { list = database.PlaceDao().getAll() }
-//
-//        t.start() // spawn thread
-//        t.join() // wait for thread to finish
-//
-//        list.forEach {
-//            placesAdapter.addPost(it)
-//        }
     }
 
     override fun onItemClick(place: Place) {

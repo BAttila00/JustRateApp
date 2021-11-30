@@ -8,7 +8,7 @@ interface PlaceDao {
     fun getAll(): List<Place>
 
     @Insert
-    fun insert(placeItem: Place): Long      //TODO: megváltoztatni a shoppingItems nevet másra
+    fun insert(placeItem: Place): Long
 
     @Update
     fun update(placeItem: Place)
